@@ -1,1 +1,1 @@
-git status --ignored --untracked-files -s | cut -c4-
+git check-ignore *
