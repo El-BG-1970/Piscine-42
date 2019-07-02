@@ -1,1 +1,1 @@
-ls -pmtU /nfs/2019/e/egros
+ls -pmtU . 
