@@ -6,65 +6,69 @@
 /*   By: egros <egros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/04 16:07:33 by egros             #+#    #+#             */
-/*   Updated: 2019/07/06 07:36:17 by egros            ###   ########.fr       */
+/*   Updated: 2019/07/05 15:36:52 by egros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "unistd.h"
-#include "stdio.h"
 
-int		puiss(int nb, int exp)
-{
-	int i;
-	int	pow;
-
-	i = 0;
-	pow = 1;
-	while (i++ < exp)
-	{
-		pow = pow * nb;
-	}
-	return (pow);
-}
-
-int		ordre(int nb)
-{
-	int p;
-
-	p = 0;
-	while (nb/10 > 1)
-	{
-		p++;
-		nb = nb/10;
-	}
-	return (p);
-}
-
-int		test(int nb, int ord)
+void	increment(int arr[], int len)
 {
 	int j;
 
-	j = nb/puiss(10, ord);
-	j = j * puiss(10, ord-1);
-	if ((j > nb) && (test(nb - j, ord -1) == 1))
-		return (1);
+	j = 1;
+	if ((arr[len - j]) && (arr[len - j] == 9))
+	{
+		arr[len -j -1]++;
+		arr[len - j] = arr[len -j -1] + 1;
+	}
 	else
-		return (-1);
+	{
+		arr[len -j]++;
+	}
+}
+
+int		end(int arr[], int len)
+{
+	int k;
+
+	k = len;
+	while ((k-- > 1) && arr[k])
+	{
+		if (!(arr[len - 1]) || !(arr[k] - arr[k-1] == 1))
+		{
+			return (-1);
+		}
+	}
+	return (0);
+}
+
+void	print_arr(int arr[])
+{
+	int i;
+	char c;
+
+	i = -1;
+	while (arr[++i])
+	{
+		c = arr[i] + 48;
+		write(1, &c, 1);
+	}
 }
 
 void	ft_print_combn(int n)
 {
-	int	i;
-
+	int arr[n];
+	int i;
+	
 	i = -1;
-	while (i++ < puiss(10, n+1))
+	while (i++ < 9)
 	{
-		if (test(i, ordre(i)) == 1)
-			printf("%i, ", i);
+		arr[i] = i;
 	}
-}
 
-int		main()
-{
-	ft_print_combn(2);
+	while (end(arr, n) == 0)
+	{
+		increment(arr, n);
+	}
 }
