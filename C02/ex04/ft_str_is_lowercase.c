@@ -6,11 +6,11 @@
 /*   By: egros <egros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 22:15:03 by egros             #+#    #+#             */
-/*   Updated: 2019/07/07 22:37:25 by egros            ###   ########.fr       */
+/*   Updated: 2019/07/09 18:08:59 by egros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_lowercase(int *str)
+int		ft_str_is_lowercase(char *str)
 {
 	int i;
 

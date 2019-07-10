@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   strncmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egros <egros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/07 18:30:54 by egros             #+#    #+#             */
-/*   Updated: 2019/07/09 18:05:45 by egros            ###   ########.fr       */
+/*   Created: 2019/07/09 14:23:46 by egros             #+#    #+#             */
+/*   Updated: 2019/07/09 14:32:44 by egros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i;
+	unsigned char	*us1;
+	unsigned char	*us2;
+	int				i;
 
+	us1 = (unsigned char *)s1;
+	us2 = (unsigned char *)s2;
 	i = 0;
-	while (i < n && src[i] != '\0')
+	while ((i < n) && (us1[i]) && (us2[i]))
 	{
-		dest[i] = src[i];
+		if (us1[i] != us2[i])
+			return ((int)(us1[i] - us2[i]));
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return (0);
 }

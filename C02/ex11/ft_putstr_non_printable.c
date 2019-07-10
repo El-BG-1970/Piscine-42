@@ -6,7 +6,7 @@
 /*   By: egros <egros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 12:19:25 by egros             #+#    #+#             */
-/*   Updated: 2019/07/08 15:25:05 by egros            ###   ########.fr       */
+/*   Updated: 2019/07/09 20:26:27 by egros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_char_is_printable(char str)
 	return (1);
 }
 
-char	*ft_char2hex(unsigned int c)
+char	*ft_char2hex(unsigned char c)
 {
 	char	out[2];
 	char	*ret;
@@ -39,7 +39,7 @@ char	*ft_char2hex(unsigned int c)
 		out[1] = 97 + (tempr - 10);
 	else
 		out[1] = 48 + tempr;
-	return(ret);
+	return (ret);
 }
 
 void	ft_putstr_non_printable(char *str)
@@ -64,9 +64,4 @@ void	ft_putstr_non_printable(char *str)
 			write(1, &c[1], 1);
 		}
 	}
-}
-
-int main()
-{
-	ft_putstr_non_printable("je te latte\n\t");
 }

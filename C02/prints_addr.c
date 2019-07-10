@@ -6,7 +6,7 @@
 /*   By: egros <egros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 15:26:43 by egros             #+#    #+#             */
-/*   Updated: 2019/07/08 23:50:46 by egros            ###   ########.fr       */
+/*   Updated: 2019/07/08 22:31:24 by egros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,10 @@ void	ft_put_hex_ad(unsigned long c)
 void	*ft_print_memory(void *addr, unsigned int size)
 {
 	unsigned long	ad;
-	unsigned long	*loc;
-	unsigned int	i;
-	unsigned int	j;
-	
-	i = 0;
+	unsigned int	*loc;
+
 	ad = (unsigned long)addr;
-	loc = addr;
-	while (i < size)
-	{
-		j = 0;
-		ft_put_hex_ad(loc[i]);
-		write(1, ": ", 2);
-		while (j < 8)
-		{
-			ft_put_hex_ad(loc[i]);
-			write(1, " ", 1);
-			j++;
-			i++;
-		}
-		write(1, "\n", 1);
-	}
+	ft_put_hex_ad(ad);
+	write(1, ": ", 2);
 	return (addr);
 }
