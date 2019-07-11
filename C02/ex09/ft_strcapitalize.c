@@ -6,9 +6,11 @@
 /*   By: egros <egros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 10:00:57 by egros             #+#    #+#             */
-/*   Updated: 2019/07/08 10:54:55 by egros            ###   ########.fr       */
+/*   Updated: 2019/07/10 14:25:08 by egros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "stdio.h"
 
 int		ft_is_a_n(char str)
 {
@@ -26,7 +28,7 @@ char	*ft_strcapitalize(char *str)
 	int i;
 
 	i = 0;
-	if ((str[0] <= 'z') || (str[0] >= 'a')) 
+	if ((str[0] <= 'z') && (str[0] >= 'a')) 
 		str[0] = str[0] - 32;
 	while (str[++i])
 	{
@@ -39,4 +41,13 @@ char	*ft_strcapitalize(char *str)
 		}
 	}
 	return (str);
+}
+
+int main()
+{
+	char c[] = "^ywKP(9t~9u'M$";
+	char *cc;
+	cc = c;
+	printf("%s\n", "^YWkp(9t~9u'M$");
+	printf("%s\n", ft_strcapitalize(c));
 }
